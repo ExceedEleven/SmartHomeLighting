@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import { getData, getSuccess } from '../services/fetchdata'
-import { sendData } from '../services/postdata'
+import { getData, getSuccess } from './services/fetchdata'
+import { sendData } from './services/postdata'
 
 
 function App() {
