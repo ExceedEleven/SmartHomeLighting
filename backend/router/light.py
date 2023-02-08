@@ -3,14 +3,8 @@ from typing import List, Optional, Union
 
 from config.database import db
 from fastapi import APIRouter, Body, HTTPException
-from pydantic import BaseModel
-
-
-class Light(BaseModel):
-    room_id: int
-    isAuto: bool
-    brightness: int
-    isOn: bool
+from router.control import auto, manual
+from router.model import Light
 
 
 router = APIRouter(prefix="/light",
@@ -42,3 +36,12 @@ def get_light(room_id: int):
     result = values[0]
 
     return {"result": result}
+
+@router.put("/update/{sender}")
+def update_light(sender: str, light: Light):
+    if light.is_auto:
+        auto(sender, light)
+    else:
+        manual(sender, light)
+        
+    return {"result": "Update success"}
