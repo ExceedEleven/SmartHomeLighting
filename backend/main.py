@@ -34,7 +34,12 @@ def update_light(light: Light):
     if light.brightness not in range(0, 256):
         raise HTTPException(status_code=404, detail="Brightness not in range (0-255)")
     
-    if light.is_auto:
+    res = list(db["smarthome_light"].find({"room_id": light.room_id}, {"_id": False}))
+    if len(res) == 0:
+        raise HTTPException(status_code=404, detail="Room not found")
+
+    
+    if res[0]["is_auto"]:
         auto("hardware", light)
     else:
         manual("hardware", light)
