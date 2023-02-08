@@ -1,42 +1,50 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+ /* *{
+  border: 2px solid red;
+}  */
+.Header{
+  font-size: 100px;
   text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
 }
 
 .read-the-docs {
   color: #888;
+}
+
+.Checkswitch{
+  display: flex;
+  flex-direction: row;
+}
+
+.Switch{
+  padding: 4Rem;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+
+
+.room{
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 10px;
+  text-shadow: #F4EBD0;
+}
+
+p {
+  font-size: 80px;
+  color: #F4EBD0;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #B68D40, 0 0 30px #B68D40, 0 0 40px #D6AD60, 0 0 50px #B68D40, 0 0 60px #B68D40, 0 0 70px #B68D40;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #D6AD60, 0 0 40px #D6AD60, 0 0 50px #D6AD60, 0 0 60px #D6AD60, 0 0 70px #D6AD60, 0 0 80px #D6AD60;
+  }
 }
