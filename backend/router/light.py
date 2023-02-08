@@ -5,6 +5,7 @@ from config.database import db
 from fastapi import APIRouter, Body, HTTPException
 from pydantic import BaseModel
 
+from router.control import manual_front, manual_hardware, auto_front, auto_hard
 
 class Light(BaseModel):
     room_id: int
@@ -42,3 +43,7 @@ def get_light(room_id: int):
     result = values[0]
 
     return {"result": result}
+
+@router.update("/{sender}"):
+    def update_light(sender: str):
+        pass
