@@ -1,13 +1,9 @@
 import axios from "axios"
+import { getDatabyid } from "./fetchdata";
 
 export async function sendData(json) {
     const res = await axios.put("http://group11.exceed19.online/light/update/front",
-        {
-            room_id: 1,
-            is_auto: false,
-            brightness: 255,
-            is_on: false
-        }      
+       json 
 )
       .then(function (response) {
         console.log(response);

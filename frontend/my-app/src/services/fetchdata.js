@@ -16,3 +16,8 @@ export async function getSuccess(){
     console.log(res.data)
     return res.data
 }
+export async function getDatabyidBrightness(id){
+    const res = await axios.get(`http://group11.exceed19.online/light/${id}`)
+    console.log(res.data)
+    return res.data.result.brightness
+}
