@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from router import light
+from config.database import db
 
 origins = ['*']
 
