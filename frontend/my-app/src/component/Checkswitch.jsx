@@ -14,17 +14,17 @@ const Checkswitch = ({room_id}) => {
             setCheck(data.result.is_on)
             setlight(data.result)
          })
-     })
+     },[])
     const handleChange = () => {
         light.is_on=!check
         setCheck(!check)
         sendData(light)
     }
     return(
-        <div>
+        <div className='Switch'>
             <FormControlLabel 
             label={check ? "on":"off"}
-            control={<Switch checked={check} onChange={handleChange}/>}/>
+            control={<Switch checked={check} onChange={handleChange} color="warning"/>}/>
         </div>
     )
 }
