@@ -14,7 +14,7 @@ const Checkswitch = ({room_id}) => {
             setCheck(data.result.is_on)
             setlight(data.result)
          })
-     },[])
+     })
     const handleChange = () => {
         light.is_on=!check
         setCheck(!check)
