@@ -11,5 +11,5 @@ export async function sendData(json) {
       .catch(function (error) {
         console.log(error);
       })
-    return res.data
+    return res
 }
