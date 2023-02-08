@@ -4,8 +4,8 @@ from typing import List, Optional, Union
 from config.database import db
 from fastapi import APIRouter, Body, HTTPException
 from pydantic import BaseModel
+from router.control import auto, manual
 
-from router.control import manual_front, manual_hardware, auto_front, auto_hard
 
 class Light(BaseModel):
     room_id: int
@@ -44,6 +44,9 @@ def get_light(room_id: int):
 
     return {"result": result}
 
-@router.update("/{sender}"):
-    def update_light(sender: str):
-        pass
+@router.update("/{sender}")
+def update_light(sender: str, light: Light):
+    if light['is_auto']:
+        auto(sender, light)
+    else:
+        manual(sender, light)
