@@ -1,3 +1,9 @@
+
+import { useState } from 'react'
+import './App.css'
+import FormControlLabel from '@mui/material/FormControlLabel';
+import { FormGroup } from '@mui/material';
+import Checkswitch from './component/Checkswitch';
 import  { useState, useEffect  }from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
@@ -7,41 +13,32 @@ import LightSlider from './component/slider'
 import axios from "axios"
 import {Link} from 'react-router-dom'
 
+
 function App() {
   const [count, setCount] = useState(0)
 
 
   return (
-    <div className="App">
+    <div>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => getSuccess()}>
-          count is {count}
-        </button>
-        <p>
-        <button onClick={() => getData()}/>
-        <button onClick={() => sendData("bma")}/>
-        <button onClick={() => console.log(getDatabyid(2))}/>
 
-        
-        {/* <input type="range" min="0" max="255" defaultValue={getDatabyidBrightness(0)}/> */}
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      <div>
-        <LightSlider  />
+        <h1 className='Header'>Room</h1>
+      </div >
+        <div className='Switch'>
+          <div className="room">
+            <p>Room 1</p>
+            <FormControlLabel control={<Checkswitch room_id={0} className='Switch'/>}/>
+          </div>
+          <div className="room">
+            <p>Room 2</p>
+            <FormControlLabel control={<Checkswitch room_id={1}/>}/>
+          </div>
+          <div className="room">
+            <p>Room 3</p>
+            <FormControlLabel control={<Checkswitch room_id={2}/>}/>
+          </div>        
         </div>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
     </div>
     
   )
