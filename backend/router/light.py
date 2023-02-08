@@ -22,11 +22,14 @@ def get_all_light():
     data = collection.find({}, {"_id": False})
     result = list(data)
 
-    return {"data": result}
+    return {"result": result}
 
 
 @router.get("/{room_id}")
 def get_light(room_id: int):
+    if room_id not in range(0, 3):
+        raise HTTPException(status_code=404, detail="Room Id not in range (0-2)")
+
     collection = db["smarthome_light"]
 
     values = collection.find({"room_id": room_id}, {"_id": False})
@@ -37,4 +40,5 @@ def get_light(room_id: int):
         raise HTTPException(status_code=404, detail="Room not found")
 
     result = values[0]
-    return {"data": result}
+
+    return {"result": result}
