@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import { getData, getSuccess } from '../services/fetchdata'
+import { sendData } from '../services/postdata'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,10 +20,13 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => getSuccess()}>
           count is {count}
         </button>
         <p>
+        <button onClick={() => getData()}/>
+        <button onClick={() => sendData("bma")}/>
+        
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
