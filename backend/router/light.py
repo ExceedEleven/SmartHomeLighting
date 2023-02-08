@@ -39,6 +39,11 @@ def get_light(room_id: int):
 
 @router.put("/update/{sender}")
 def update_light(sender: str, light: Light):
+    if light.room_id not in range(0, 3):
+        raise HTTPException(status_code=404, detail="Room Id not in range (0-2)")
+    if light.brightness not in range(0, 256):
+        raise HTTPException(status_code=404, detail="Brightness not in range (0-255)")
+    
     if light.is_auto:
         auto(sender, light)
     else:
