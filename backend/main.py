@@ -17,5 +17,12 @@ app.add_middleware(
 app.include_router(light.router)
 
 @app.get("/")
-def read_root():
-    return {"msg": "Connect!"}
+def get_all_light():
+    collection = db["smarthome_light"]
+    data = collection.find({}, {"_id": False})
+    result = list(data)
+
+    return {"result": result}
+
+# def read_root():
+#     return {"msg": "Connect!"}
