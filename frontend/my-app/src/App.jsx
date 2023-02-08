@@ -13,9 +13,9 @@ function App() {
         <h1 className='asd'>Room</h1>
       </div>
         <FormGroup>
-          <FormControlLabel label="Room1" control={<Checkswitch room_id={1} />}/>
+          <FormControlLabel label="Room1" control={<Checkswitch room_id={0} />}/>
           <FormControlLabel label="Room2" control={<Checkswitch room_id={1}/>}/>
-          <FormControlLabel label="Room3" control={<Checkswitch room_id={1}/>}/>
+          <FormControlLabel label="Room3" control={<Checkswitch room_id={2}/>}/>
         </FormGroup>
     </div>
   )
