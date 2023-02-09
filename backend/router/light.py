@@ -50,7 +50,7 @@ def update_light(sender: str, light: Light):
 
     
     if res[0]["is_auto"]:
-        auto("hardware", light)
+        auto(sender, light)
     else:
         manual(sender, light)
         
